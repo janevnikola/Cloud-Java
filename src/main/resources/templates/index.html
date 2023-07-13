@@ -1,0 +1,40 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css">
+<title>Home page</title>
+</head>
+<body>
+<div class="container-fluid text-center">
+<h1>Welcome to the project</h1>
+<h2>Your selection: B. Sort the input according to date/time (descending) (500000 entries)</h2>
+</div>
+<a href="/generateFilePage">Generate your file</a>
+<br>
+<a href="/sortingPage">Sort your file</a>
+
+<br>
+<br>
+<br>
+
+<h1>
+	<div class="container-fluid text-center">Uploaded files</div>
+</h1>
+<!--we list the documents-->
+<div class="row border rounded ">
+
+		<th:block th:each="doc : ${listDocuments}">
+			<div class="col"> <!--column-->
+				<div>
+					<!--for each document we have div where we write the file -->
+					<a th:href="@{'/download?id='+${doc.id}}">[[${doc.name}]]</a>
+				</div>
+			
+			</div>	
+		</th:block>
+
+</div>
+
+</body>
+
+
+</html>
