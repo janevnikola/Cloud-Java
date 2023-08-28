@@ -1,11 +1,9 @@
 package com.nikola;
 
-import com.nikola.GenerateFiles;
 
 import jakarta.servlet.ServletOutputStream;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletResponse;
-import org.apache.coyote.Response;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.data.repository.query.Param;
@@ -15,16 +13,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileReader;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -90,6 +86,9 @@ public class AppController {
 	//za da go capture file-ot sto ke go uploadneme koristime @RequestParam
 	@PostMapping("/upload")
 	public String uploadFile(@RequestParam("document") MultipartFile multipartFile, RedirectAttributes redirectAttributes) throws IOException{
+	//start the stopwatch
+		 long startTime = System.currentTimeMillis();
+		
 		String fileName=  org.springframework.util.StringUtils.cleanPath(multipartFile.getOriginalFilename()); //we get the file name
 	
 		//we create a new document
@@ -113,8 +112,16 @@ public class AppController {
 	        return "redirect:/error"; // Handle file reading error
 	      }
 	    
+	    
+	    
+	    System.out.println("Unsorted lines"+lines);
+	    
 	 // Sort the lines in descending order
 	    Collections.sort(lines, Collections.reverseOrder());
+	    
+	    System.out.println("Sorted lines: "+lines);
+	    
+	    
 	    
 		Date uploadTime=new Date();
 		
@@ -128,8 +135,15 @@ public class AppController {
 	      document.setContent(line.getBytes());
 	   
 	    }
+	    
+	    System.out.println("Document after saving: "+document.getContent());
 	    documentRepository.save(document);
 
+	    
+	 // Stop the stopwatch after sorting and saving
+	    long endTime = System.currentTimeMillis();
+	    long elapsedTime = endTime - startTime;
+	    
 		
 		//saving the file
 	//	documentRepository.save(document);
@@ -139,8 +153,8 @@ public class AppController {
 		//2. implement calculation from strating to upload to finish (processing time for sorting) and display the result on screen
 		//like System.out.println("Calculation time from upload->sorting->Done is: "+calculation_time);
 		
-		redirectAttributes.addFlashAttribute("message", "Calculation time from upload->sorting->done file is: "+uploadTime);
-		
+		//redirectAttributes.addFlashAttribute("message", "Calculation time from upload->sorting->done file is: "+uploadTime);
+		redirectAttributes.addFlashAttribute("message", "Calculation time from upload->sorting->done file is: " + elapsedTime + " milliseconds.");
 		//TODO:Implement sorting while uploading and save the file
 		return "redirect:/sortingPage";
 	}

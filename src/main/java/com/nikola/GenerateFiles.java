@@ -2,9 +2,6 @@ package com.nikola;
 
 import org.springframework.stereotype.Component;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Random;
 import java.time.LocalDate;
 
 @Component

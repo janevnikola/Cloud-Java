@@ -1,6 +1,6 @@
 package com.nikola;
 
-import java.util.ArrayList;
+
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -69,11 +69,22 @@ public class Document{
 	public byte[] getContent() {
 		return content;
 	}
-	public void setContent(byte[] content) {
-		this.content = content;
-	}
-
+	public void setContent(byte[] new_content) {
+		//you need to append, not overwrite 
+	//	this.content+=new_content;
 	
+	    if (this.content == null) {
+	        this.content = new_content.clone();
+	    } else {
+	        byte[] newLine = System.getProperty("line.separator").getBytes();
+	        byte[] combinedContent = new byte[this.content.length + newLine.length + new_content.length];
+	        System.arraycopy(this.content, 0, combinedContent, 0, this.content.length);
+	        System.arraycopy(newLine, 0, combinedContent, this.content.length, newLine.length);
+	        System.arraycopy(new_content, 0, combinedContent, this.content.length + newLine.length, new_content.length);
+	        this.content = combinedContent;
+	    }
+
+	}
 	
 	
 	
