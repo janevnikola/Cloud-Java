@@ -16,7 +16,64 @@
 	<properties>
 		<java.version>17</java.version>
 	</properties>
+
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+        <groupId>com.google.cloud</groupId>
+        <artifactId>spring-cloud-gcp-dependencies</artifactId>
+        <version>4.7.2</version>
+        <type>pom</type>
+        <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+    
+
+
+
+
 	<dependencies>
+	
+
+	
+	
+	-->
+	
+        <dependency>
+            <groupId>com.google.cloud</groupId>
+            <artifactId>spring-cloud-gcp-starter-sql-mysql</artifactId>
+        </dependency>
+
+    
+<!-- not neccesary to include
+<dependency>
+    <groupId>com.google.cloud.sql</groupId>
+    <artifactId>mysql-socket-factory-connector-j-8</artifactId>
+    <version>1.13.1</version>
+</dependency>
+         -->
+
+<!--specify hibernat to connect with google cloud sql-->
+<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-core</artifactId>
+    <version>5.6.7.Final</version>
+    <scope>provided</scope>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-entitymanager</artifactId>
+    <version>5.6.14.Final</version>
+</dependency>
+
+
+
+
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -54,7 +111,14 @@
 			<version>4.3.1</version>
 		</dependency>
 		<!-- dependency to load bootstrap css files from the jar -->
-		
+		<!-- Jakarta Persistence -->
+<dependency>
+<groupId>jakarta.persistence</groupId>
+<artifactId>jakarta.persistence-api</artifactId>
+<version>3.1.0</version>
+</dependency>
+
+
 		
 		<dependency>
 			<groupId>org.webjars</groupId>
@@ -66,6 +130,15 @@
 
 	<build>
 		<plugins>
+       
+    <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>3.0.0-M8</version>
+</plugin>
+
+
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -74,3 +147,4 @@
 	</build>
 
 </project>
+
