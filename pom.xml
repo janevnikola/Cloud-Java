@@ -34,12 +34,22 @@
 
 
 	<dependencies>
-	
 
-	
-	
-	-->
-	
+
+
+<dependency>
+    <groupId>jakarta.persistence</groupId>
+    <artifactId>jakarta.persistence-api</artifactId>
+    <version>3.1.0</version>
+</dependency>
+
+
+
+
+
+
+
+
         <dependency>
             <groupId>com.google.cloud</groupId>
             <artifactId>spring-cloud-gcp-starter-sql-mysql</artifactId>
@@ -54,7 +64,7 @@
 </dependency>
          -->
 
-<!--specify hibernat to connect with google cloud sql-->
+<!--specify hibernate za da se konektiras do sql-->
 <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 <dependency>
     <groupId>org.hibernate</groupId>
@@ -112,13 +122,12 @@
 		</dependency>
 		<!-- dependency to load bootstrap css files from the jar -->
 		<!-- Jakarta Persistence -->
-<dependency>
+<!--<dependency>
 <groupId>jakarta.persistence</groupId>
 <artifactId>jakarta.persistence-api</artifactId>
-<version>3.1.0</version>
+<version>3.0.0</version>
 </dependency>
-
-
+-->
 		
 		<dependency>
 			<groupId>org.webjars</groupId>
@@ -147,4 +156,5 @@
 	</build>
 
 </project>
+
 
