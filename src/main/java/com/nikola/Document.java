@@ -3,30 +3,23 @@ package com.nikola;
 
 import java.util.Date;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
-@Entity
-@Table(name="documents")
+
+
 public class Document{
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Long id;
 	
-	@Column(length=512,nullable = false,unique = true)
+
 	private String name;
 	
 	private long size;
 	
-	@Column(name="upload_time")
+
 	private Date uploadTime;
 	
-	@Column(name = "content")
+	
 	private byte [] content;
 	
 	
