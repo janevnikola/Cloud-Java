@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'  # Add this line
+Description: My AWS SAM Application
+Resources:
+  MySpringBootFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: com.nikola.JavaStreamHandler::handleRequest
+      Runtime: java17
+      CodeUri: .
+      MemorySize: 512
+      Timeout: 10
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-052e0a57044fa9874  # Replaced with your security group ID
+        SubnetIds:
+          - subnet-03c9f22555f886d10  # Replaced with your subnet ID
+          - subnet-0a8164d7592904651  # Replaced
