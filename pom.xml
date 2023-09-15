@@ -18,13 +18,17 @@
 
 
 	<dependencies>
-
-
 		<dependency>
-			<groupId>com.amazonaws.serverless</groupId>
-			<artifactId>aws-serverless-java-container-springboot3</artifactId>
-			<version>2.0.0-M2</version>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-lambda</artifactId>
+			<version>1.12.200</version> <!-- Use the latest version -->
 		</dependency>
+
+<!--		<dependency>-->
+<!--			<groupId>com.amazonaws.serverless</groupId>-->
+<!--			<artifactId>aws-serverless-java-container-springboot3</artifactId>-->
+<!--			<version>2.0.0-M2</version>-->
+<!--		</dependency>-->
 
 
 		<dependency>
@@ -68,130 +72,130 @@
 		</dependency>
 
 
-		<dependency>
-			<groupId>com.amazonaws</groupId>
-			<artifactId>aws-java-sdk</artifactId>
-			<version>1.12.550</version> <!-- Use the appropriate version -->
+<!--		<dependency>-->
+<!--			<groupId>com.amazonaws</groupId>-->
+<!--			<artifactId>aws-java-sdk</artifactId>-->
+<!--			<version>1.12.550</version> &lt;!&ndash; Use the appropriate version &ndash;&gt;-->
 
-			<exclusions>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>aws-java-sdk-kafkaconnect</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>
-        			aws-java-sdk-kinesisvideowebrtcstorage
-        		</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>aws-java-sdk-ivschat</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>aws-java-sdk-iottwinmaker</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>aws-java-sdk-voiceid</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>aws-java-sdk-iotwireless</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>
-        			aws-java-sdk-kinesisvideosignalingchannels
-        		</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>aws-java-sdk-marketplacecatalog</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>aws-java-sdk-kafka</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>aws-java-sdk-alexaforbusiness</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>aws-java-sdk-kinesisvideo</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>aws-java-sdk-athena</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>aws-java-sdk-iotroborunner</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>aws-java-sdk-proton</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>aws-java-sdk-nimblestudio</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>aws-java-sdk-iotsitewise</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>aws-java-sdk-kendra</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>aws-java-sdk-iotsecuretunneling</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>
-        			aws-java-sdk-workmailmessageflow
-        		</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>aws-java-sdk-iotevents</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>aws-java-sdk-iotthingsgraph</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>aws-java-sdk-managedblockchain</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>aws-java-sdk-kinesisanalyticsv2</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>aws-java-sdk-pinpointemail</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>aws-java-sdk-robomaker</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>
-        			aws-java-sdk-marketplacemeteringservice
-        		</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.amazonaws</groupId>
-					<artifactId>aws-java-sdk-mediaconnect</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
+<!--			<exclusions>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>aws-java-sdk-kafkaconnect</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>-->
+<!--        			aws-java-sdk-kinesisvideowebrtcstorage-->
+<!--        		</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>aws-java-sdk-ivschat</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>aws-java-sdk-iottwinmaker</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>aws-java-sdk-voiceid</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>aws-java-sdk-iotwireless</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>-->
+<!--        			aws-java-sdk-kinesisvideosignalingchannels-->
+<!--        		</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>aws-java-sdk-marketplacecatalog</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>aws-java-sdk-kafka</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>aws-java-sdk-alexaforbusiness</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>aws-java-sdk-kinesisvideo</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>aws-java-sdk-athena</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>aws-java-sdk-iotroborunner</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>aws-java-sdk-proton</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>aws-java-sdk-nimblestudio</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>aws-java-sdk-iotsitewise</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>aws-java-sdk-kendra</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>aws-java-sdk-iotsecuretunneling</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>-->
+<!--        			aws-java-sdk-workmailmessageflow-->
+<!--        		</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>aws-java-sdk-iotevents</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>aws-java-sdk-iotthingsgraph</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>aws-java-sdk-managedblockchain</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>aws-java-sdk-kinesisanalyticsv2</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>aws-java-sdk-pinpointemail</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>aws-java-sdk-robomaker</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>-->
+<!--        			aws-java-sdk-marketplacemeteringservice-->
+<!--        		</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.amazonaws</groupId>-->
+<!--					<artifactId>aws-java-sdk-mediaconnect</artifactId>-->
+<!--				</exclusion>-->
+<!--			</exclusions>-->
+<!--		</dependency>-->
 
 
 		<dependency>
@@ -237,4 +241,3 @@
 	</build>
 
 </project>
-
