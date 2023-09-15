@@ -1,37 +1,71 @@
+/*
+ * It reads the sortingPageUrl from the input event, which allows you to dynamically specify the URL of the /sortingPage endpoint when you invoke the Lambda function.
+
+It generates 500,000 random dates using the generateDates method, similar to your previous code.
+
+It triggers the /sortingPage endpoint using an HTTP POST request, passing the generated dates as the request body. The response from the /sortingPage endpoint is captured and returned.
+
+It includes a createRandomDate method to generate random dates, as before.
+ */
+
+
+
+
 package com.nikola;
 
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+import org.springframework.web.client.RestTemplate;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import java.util.Map;
 import java.util.Random;
-import java.time.LocalDate;
 
-public class LargeDatasetProcessorLambdaHandler {
+public class LargeDatasetProcessorLambdaHandler implements RequestHandler<Map<String, String>, String> {
 
-    public String handleRequest() {
-        // Generate the dates and process each one
-        List<String> dates = generateDates();
+    @Override
+    public String handleRequest(Map<String, String> input, Context context) {
+        // Read the URL of the /sortingPage endpoint from the input event
+        String sortingPageUrl = input.get("sortingPageUrl");
 
-        for (String date : dates) {
-            // Simulate invoking the Lambda function for each date
-            String payload = "{\"date\": \"" + date + "\"}";
-            String response = simulateLambdaInvocation(payload);
-
-            // Handle the response (modify as needed)
-            System.out.println("Lambda function response for date " + date + ": " + response);
+        if (sortingPageUrl == null) {
+            throw new RuntimeException("sortingPageUrl not provided in input.");
         }
 
-        return "Dates processed successfully for testing.";
+        // Generate 500,000 random dates
+        List<String> dates = generateDates(500000);
+
+        // Trigger the /sortingPage endpoint to sort the dates
+        String response = triggerSortingPage(sortingPageUrl, dates);
+
+        return "Dates generated and sorted successfully!";
     }
 
-    private List<String> generateDates() {
+    private List<String> generateDates(int numberOfDates) {
+        // Generate random dates as before
+        // ...
         List<String> dates = new ArrayList<>();
-        for (int i = 0; i < 500000; i++) {
+        for (int i = 0; i < numberOfDates; i++) {
             String randomDate = createRandomDate(1900, 2000);
             dates.add(randomDate);
         }
         return dates;
     }
 
+    private String triggerSortingPage(String endpoint, List<String> dates) {
+        // Send an HTTP POST request to your /sortingPage endpoint
+        RestTemplate restTemplate = new RestTemplate();
+        // You can set any additional form parameters if needed
+        // For example, you might serialize the 'dates' list and include it in the request body
+
+        // Perform the HTTP POST request and capture the response
+        String response = restTemplate.postForObject(endpoint, dates, String.class);
+
+        return response;
+    }
     private String createRandomDate(int startYear, int endYear) {
         Random rand = new Random();
         int day = rand.nextInt(28) + 1;
@@ -39,17 +73,5 @@ public class LargeDatasetProcessorLambdaHandler {
         int year = rand.nextInt(endYear - startYear + 1) + startYear;
         LocalDate date = LocalDate.of(year, month, day);
         return date.toString();
-    }
-
-    private String simulateLambdaInvocation(String payload) {
-        // Simulate the Lambda function invocation for testing
-        // In a real AWS Lambda environment, this would be replaced with actual invocation logic
-        return "Simulated Lambda function response: " + payload;
-    }
-
-    public static void main(String[] args) {
-        LargeDatasetProcessorLambdaHandler lambdaHandler = new LargeDatasetProcessorLambdaHandler();
-        String result = lambdaHandler.handleRequest();
-        System.out.println("Lambda function result: " + result);
     }
 }
